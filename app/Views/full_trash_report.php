@@ -13,7 +13,7 @@
                 <div class="carousel-inner">
                     <?php foreach ($photos as $key => $photo) : ?>
                     <div class="carousel-item <?= $key === 0 ? 'active' : '' ?>">
-                        <img src="<?= base_url('uploads/' . $photo['photo_path']); ?>" class="d-block w-100" alt="Photo <?= $key ?>">
+                        <img src="<?= base_url('public/uploads/' . $photo['photo_path']); ?>" class="d-block w-100" alt="Photo <?= $key ?>">
                     </div>
                     <?php endforeach; ?>
                 </div>
