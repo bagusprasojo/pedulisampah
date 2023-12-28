@@ -11,8 +11,8 @@ class AuthController extends BaseController
             return view('login');
         }
 
-        $login = $this->request->getPost('login'); // Mengambil inputan dari form (username atau email)
-        $password = $this->request->getPost('password');
+        $login = esc($this->request->getPost('login')); // Mengambil inputan dari form (username atau email)
+        $password = esc($this->request->getPost('password'));
 
         $userModel = new UserModel();
 
@@ -60,11 +60,11 @@ class AuthController extends BaseController
             } else {
                 // Tangkap data dari form pendaftaran
                 $userData = [
-                    'username' => $this->request->getPost('username'),
-                    'email' => $this->request->getPost('email'),
-                    'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
-                    'name' => $this->request->getPost('name'), // Menangkap data nama
-                    'address' => $this->request->getPost('alamat') // Menangkap data alamat
+                    'username' => esc($this->request->getPost('username')),
+                    'email' => esc($this->request->getPost('email')),
+                    'password' => password_hash(esc($this->request->getPost('password')), PASSWORD_DEFAULT),
+                    'name' => esc($this->request->getPost('name')), // Menangkap data nama
+                    'address' => esc($this->request->getPost('alamat')) // Menangkap data alamat
                     // Tambahan data lain jika ada
                 ];
 

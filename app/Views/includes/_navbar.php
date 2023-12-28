@@ -53,7 +53,7 @@
                 
             </ul>
             <!-- Form pencarian -->
-            <form class="form-inline my-2 my-lg-0" method='GET' action='/trash-reports'>
+            <form class="form-inline my-2 my-lg-0" method='GET' action="<?= site_url('trash-reports'); ?>">
                 <input class="form-control mr-sm-2" name="search" type="search" placeholder="Cari..." aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cari</button>
             </form>

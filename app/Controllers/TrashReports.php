@@ -27,7 +27,7 @@ class TrashReports extends Controller
 
         $nilai_search = '';
         if (isset($_GET['search'])) {
-            $nilai_search = $_GET['search'];
+            $nilai_search = esc($_GET['search']);
         }
         
         if ($nilai_search == ''){
