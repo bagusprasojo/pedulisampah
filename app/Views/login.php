@@ -13,7 +13,7 @@
 
                 <h5>Silakan Login</h5>
 
-                <form action="/login" method="post">
+                <form action="<?= site_url('login') ?>" method="post">
                     <div class="mb-3">
                         <input type="text" name="login" class="form-control" placeholder="Username / Email" >
                     </div>
@@ -23,7 +23,7 @@
                     <button type="submit" class="btn btn-success w-100">Login</button>
                 </form>            
                 <div class="mt-3">
-                <a href="#">Lupa Password</a> | <a href="/register">Daftar</a>
+                <a href="#">Lupa Password</a> | <a href="<?= base_url('register');?>">Daftar</a>
                 </div>
             </div>
         </div>

@@ -11,14 +11,20 @@
                 }
             ?>
 
-        <form action="/tambah-laporan" method="post" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="location">Judul:</label>
-                <input type="text" class="form-control" id="title" name="title" value="<?= isset($_SESSION['old']['title']) ? $_SESSION['old']['title'] : '' ?>">
-            </div>
-            <div class="form-group">
-                <label for="location">Location:</label>
-                <input type="text" class="form-control" id="location" name="location" value="<?= isset($_SESSION['old']['location']) ? $_SESSION['old']['location'] : '' ?>">
+        <form action="<?= site_url('tambah-laporan') ?>" method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="location">Judul:</label>
+                        <input type="text" class="form-control" id="title" name="title" value="<?= isset($_SESSION['old']['title']) ? $_SESSION['old']['title'] : '' ?>">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="location">Location:</label>
+                        <input type="text" class="form-control" id="location" name="location" value="<?= isset($_SESSION['old']['location']) ? $_SESSION['old']['location'] : '' ?>">
+                    </div>
+                </div>
             </div>
             <div class="form-group">
                 <label for="description">Description:</label>

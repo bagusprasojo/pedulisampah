@@ -8,6 +8,7 @@ use App\Models\TrashReportPhotoModel;
 use App\Models\VisitorReportRecordModel;
 use App\Models\CommentModel;
 use CodeIgniter\Controller;
+use Config\App;
 
 class TrashReports extends Controller
 {    
@@ -60,7 +61,7 @@ class TrashReports extends Controller
         $session = session();
         if (!is_logged_in()) {
             $session->set('previous_url', current_url());
-            return redirect()->to('/login')->with('error', 'Anda harus login untuk membuat laporan');
+            return redirect()->to(site_url('login'))->with('error', 'Anda harus login untuk membuat laporan');
         }
 
         if ($this->request->getMethod() === 'get') {
@@ -88,9 +89,9 @@ class TrashReports extends Controller
         // Dapatkan data yang dikirim dari form tambah laporan
         $data = [
             'user_id' => $session->get('user_id'),
-            'location' => $this->request->getPost('location'),
-            'title' => $this->request->getPost('title'),
-            'description' => $this->request->getPost('description'),
+            'location' => esc($this->request->getPost('location')),
+            'title' => esc($this->request->getPost('title')),
+            'description' => esc($this->request->getPost('description')),
             'photo' => $nama_photo_depan,
             // ... dan seterusnya, sesuai dengan struktur data laporan Anda
         ];
@@ -109,7 +110,7 @@ class TrashReports extends Controller
             foreach ($photoPaths as $path) {
                 $reportModel->addPhoto($reportId, $path);
             }
-            return redirect()->to('/trash-reports')->with('success', 'Laporan berhasil ditambahkan');
+            return redirect()->to(site_url('trash-reports'))->with('success', 'Laporan berhasil ditambahkan');
         } else {
             session()->setFlashdata('errors', $validation->getErrors());  
             session()->setFlashdata('old', $this->request->getPost());          

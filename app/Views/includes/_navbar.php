@@ -8,11 +8,11 @@
         <div class="collapse navbar-collapse m-1 rounded" id="navbarNav" >
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Beranda</a>
+                    <a class="nav-link" href="<?= site_url('');?>">Beranda</a>
                 </li>
                 <!-- Tambahkan menu-menu lainnya sesuai kebutuhan -->
                 <li class="nav-item">
-                    <a class="nav-link" href="/trash-reports">Laporan Sampah</a>
+                    <a class="nav-link" href="<?= site_url('trash-reports');?>">Laporan Sampah</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Peta Sampah</a>
@@ -35,8 +35,8 @@
                             <?= $userData['name']; ?>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="/user_dashboard">Dashboard</a>
-                            <a class="dropdown-item" href="/logout">Logout</a>
+                            <a class="dropdown-item" href="<?= site_url('user_dashboard');?>">Dashboard</a>
+                            <a class="dropdown-item" href="<?= site_url('logout');?>">Logout</a>
                         </div>
                     </li>
                         
@@ -44,7 +44,7 @@
                     } else {
                 ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="/login">Login</a>
+                            <a class="nav-link" href="<?= site_url('login');?>">Login</a>
                         </li>
 
                 <?php

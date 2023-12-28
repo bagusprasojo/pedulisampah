@@ -160,7 +160,7 @@
                     <div class="card-body">
                       <h5 class="d-flex align-items-center mb-3">Trash Report by <?= $userData['name'];?></h5>
                       <?php foreach ($latestReports as $report): ?>
-                        <a href="/full-trash-report/<?= $report['id'] ?>"><?= $report['title'] ?></a><hr>
+                        <a href="<?= site_url(); ?>/full-trash-report/<?= $report['id'] ?>"><?= $report['title'] ?></a><hr>
                         
                       <?php endforeach; ?>
                       
