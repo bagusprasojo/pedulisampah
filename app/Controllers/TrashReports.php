@@ -67,15 +67,15 @@ class TrashReports extends Controller
         if ($this->request->getMethod() === 'get') {
             return view('tambah_laporan');
         }
-
         
         
         $photoPaths = []; // Simpan paths foto-foto yang diupload
         $files = $this->request->getFiles();
-
         $nama_photo_depan = '';
+        $is_photo_valid = false;
         foreach ($files['photos'] as $photo) {
             if ($photo->isValid() && !$photo->hasMoved()) {
+                $is_photo_valid = true;
                 $newName = $photo->getRandomName();
                 $photo->move(ROOTPATH . 'public/uploads', $newName);
                 $photoPaths[] = $newName;
@@ -85,6 +85,17 @@ class TrashReports extends Controller
                 }
             }
         }
+
+        if (!$is_photo_valid) {
+            $error_files = [
+                'Image' => 'File image masih kosong',
+            ];
+            session()->setFlashdata('errors', $error_files);  
+            session()->setFlashdata('old', $this->request->getPost());          
+            return redirect()->back()->withInput()->with('errors', $error_files);
+        }
+
+        
 
         // Dapatkan data yang dikirim dari form tambah laporan
         $data = [

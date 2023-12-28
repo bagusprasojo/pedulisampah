@@ -24,8 +24,9 @@ class TrashReportModel extends Model
 
     // Validation
     protected $validationRules = [
+        'title' => 'required',
         'location' => 'required',
-        'description' => 'required|min_length[250]',
+        'description' => 'required',
         // 'photo' => 'ext_in[photo,png,jpg,jpeg,gif]', // Contoh aturan validasi untuk berkas foto
         // Tambahkan aturan validasi lainnya sesuai kebutuhan.
     ];

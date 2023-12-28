@@ -31,10 +31,10 @@
                 <textarea class="form-control" id="description" name="description"><?= isset($_SESSION['old']['description']) ? $_SESSION['old']['description'] : '' ?></textarea>
             </div>
             <div class="form-group">
-                <label for="photo">Photo:</label>
+                <label for="photo">Photos (bisa upload beberapa file sekaligus):</label>
                 <input type="file" class="form-control-file" id="photo" name="photos[]" multiple>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary mb-2">Submit</button>
         </form>
     </div>
 <?= $this->endSection() ?>
