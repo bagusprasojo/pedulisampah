@@ -15,15 +15,9 @@
                     <a class="nav-link" href="<?= site_url('trash-reports');?>">Laporan Sampah</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Peta Sampah</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="#">Tentang Kami</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Kontak</a>
-                </li>
-
+                
                 <?php
                     $session = session();
                     $userData = $session->get();
