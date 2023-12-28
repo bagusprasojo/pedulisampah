@@ -9,7 +9,7 @@
                 <div class="col-lg-5">
                     <h1 class="font-weight-light">Buktikan Anda Peduli !</h1>
                     <p>"Terkadang, keindahan alam sekitar kita terlihat begitu rapuh. Akankah kita biarkan keabadian foto yang kita lihat hanya menjadi kenangan? Kita semua memiliki kekuatan untuk mengubah cerita ini. Bersama, mari kita jaga kebersihan lingkungan agar tidak ada lagi keindahan yang terabaikan. Satu langkah kecil dapat menyelamatkan keajaiban yang tak ternilai ini. Mulai dari sekarang, bersama kita bangun komitmen untuk melindungi keindahan yang kita cintai. Mari kita jadikan setiap sudut dunia ini sebagai bukti bahwa kebersihan adalah cerminan dari kepedulian kita akan masa depan bumi."</p>
-                    <a class="btn btn-primary" href="<?= base_url('trash-reports');?>">Laporkan Sampah!</a>
+                    <a class="btn btn-primary" href="<?= site_url('trash-reports');?>">Laporkan Sampah!</a>
                 </div>
             </div>
             <!-- Call to Action-->
@@ -24,7 +24,7 @@
                             <h2 class="card-title">Laporkan Sampah</h2>
                             <p class="card-text">“Setiap laporan adalah langkah kecil untuk menyadarkan bahwa setiap sampah tercatat dan setiap tindakan kita berharga untuk memperbaiki bumi.”</p>
                         </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="<?= base_url('tambah-laporan');?>">Laporkan</a></div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="<?= site_url('tambah-laporan');?>">Laporkan</a></div>
                     </div>
                 </div>
                 <div class="col-md-4 mb-5">
@@ -33,7 +33,7 @@
                             <h2 class="card-title">Share ke Media Sosial</h2>
                             <p class="card-text">“Setiap bagian informasi yang kita sebarkan adalah peluang untuk mengajak lebih banyak orang untuk peduli, karena perubahan dimulai dari kesadaran yang dibagikan.”</p>
                         </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="<?= base_url('trash-reports');?>">Share !</a></div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="<?= site_url('trash-reports');?>">Share !</a></div>
                     </div>
                 </div>
                 <div class="col-md-4 mb-5">
@@ -42,7 +42,7 @@
                             <h2 class="card-title">Join Komunitas</h2>
                             <p class="card-text">“Ketika kita bergabung dalam sebuah komunitas, kita membangun kekuatan bersama untuk mewujudkan perubahan yang nyata dalam menjaga kebersihan bumi dari sampah.”</p>
                         </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="<?= base_url('komunitas');?>">Join</a></div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="<?= site_url('komunitas');?>">Join</a></div>
                     </div>
                 </div>
             </div>
