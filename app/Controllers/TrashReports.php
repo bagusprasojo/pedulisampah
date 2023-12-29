@@ -102,7 +102,8 @@ class TrashReports extends Controller
             'user_id' => $session->get('user_id'),
             'location' => esc($this->request->getPost('location')),
             'title' => esc($this->request->getPost('title')),
-            'description' => esc($this->request->getPost('description')),
+            // 'desc_preview' => esc(substr($this->request->getPost('description'),250)),
+            'description' => $this->request->getPost('description'),
             'photo' => $nama_photo_depan,
             // ... dan seterusnya, sesuai dengan struktur data laporan Anda
         ];
