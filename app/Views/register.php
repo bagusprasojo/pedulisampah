@@ -24,6 +24,9 @@
                         <input type="password" name="password" class="form-control" placeholder="Password">
                     </div>
                     <div class="mb-3">
+                        <input type="password" name="konf_password" class="form-control" placeholder="Konfirmasi Password">
+                    </div>
+                    <div class="mb-3">
                         <input type="text" name="name" class="form-control" placeholder="Nama" value="<?= isset($_SESSION['old']['name']) ? $_SESSION['old']['name'] : '' ?>">
                     </div>
                     <div class="mb-3">

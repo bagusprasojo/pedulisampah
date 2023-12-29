@@ -49,6 +49,16 @@ class AuthController extends BaseController
         
         if ($this->request->getMethod() === 'post') {
             $validation = \Config\Services::validation();
+
+            if (esc($this->request->getPost('password')) != esc($this->request->getPost('konf_password'))){
+                $password_files = [
+                    'Password' => 'Password dan konfirmasi password tidak sama',
+                ];
+
+                session()->setFlashdata('errors', $password_files);
+                session()->setFlashdata('old', $this->request->getPost());
+                return redirect()->back();
+            }
         
             $userModel = new UserModel();
             
@@ -72,7 +82,7 @@ class AuthController extends BaseController
                 $userModel->insert($userData);
 
                 // Redirect ke halaman login atau halaman lainnya
-                return redirect()->to('/login')->with('success', 'Pendaftaran berhasil!');
+                return redirect()->to('/login')->with('success', 'Pendaftaran berhasil. Silakan login !');
             }            
         }
     }

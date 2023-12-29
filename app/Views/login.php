@@ -5,6 +5,11 @@
         <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
             <div class="card p-4" style="width: 400px;">                
                 <?php
+                    $success = session()->getFlashdata('success');
+                    if ($success !== null) {
+                        echo '<div class="alert alert-success">' . $success . '</div>';
+                    }
+
                     $errors = session()->getFlashdata('errors');
                     if ($errors !== null) {
                         echo '<div class="alert alert-danger">' . implode('<br>', $errors) . '</div>';

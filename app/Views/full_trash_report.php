@@ -34,7 +34,7 @@
                 <small class="text-muted">Reported by <?= $report['username']; ?> on <?= date('F j, Y', strtotime($report['created_at'])); ?></small>                        
                 <p class="card-text"><?= $report['description']; ?></p>
                 <p>
-                    <button id="btn_show_comment" class="btn btn-primary form-rounded"><?= "Number of Comments : " . $commentCount; ?></button>
+                    <button id="btn_show_comment" class="btn btn-primary form-rounded"><?= "Tambah Komentar (" . $commentCount . ")"; ?></button>
                 </p>
             </div>            
         </div>
@@ -71,6 +71,8 @@
         showBtn.addEventListener('click', () => {
             div_add_comment.style.display = 'block'
             div_list_comment.style.display = 'block'
+
+            div_add_comment.scrollIntoView({behavior: 'smooth'});
         })
     </script>
 <?= $this->endSection() ?>
