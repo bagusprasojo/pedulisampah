@@ -21,9 +21,20 @@
                         <p class="card-text"><?= $report['desc250']; ?></p>
                         
                     </div>
-                    <div class="card-body border-top">
-                        <i class="fa-regular fa-comments"></i> <?= $report['comment_count']; ?>
-                        <i class="fa-regular fa-eye"></i> <?= $report['click_count']; ?>
+                    <div class="card-body border-top d-flex justify-content-between">
+                        <div>
+                            <i class="fa-regular fa-comments"></i> <?= $report['comment_count']; ?>
+                            <i class="fa-regular fa-eye"></i> <?= $report['click_count']; ?>
+                        </div>
+                        <div class="share-icons">
+                            <?php
+                            $url = urlencode(site_url("full-trash-report/" . $report['id']));
+                            $text = urlencode('Tinjau ini: ' . site_url("full-trash-report/" . $report['id']));
+                            ?>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $url; ?>" target="_blank"><img src="<?= base_url('img/fb.png'); ?>"/></a>
+                            <a href="https://api.whatsapp.com/send?text=<?php echo $url; ?>" target="_blank"><img src="<?= base_url('img/wa.png'); ?>"/></a>
+                            <a href="https://twitter.com/intent/tweet?url=<?php echo $url; ?>" target="_blank"><img src="<?= base_url('img/tw.png'); ?>"/></a>
+                        </div>
                     </div>
                 </div>
             <?php endforeach; ?>

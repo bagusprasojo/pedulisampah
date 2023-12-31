@@ -33,9 +33,21 @@
                 <h5 class="card-title"><?= $report['title']; ?></h5>
                 <small class="text-muted">Reported by <?= $report['username']; ?> on <?= date('F j, Y', strtotime($report['created_at'])); ?></small>                        
                 <p class="card-text"><?= $report['description']; ?></p>
-                <p>
-                    <button id="btn_show_comment" class="btn btn-primary form-rounded"><?= "Tambah Komentar (" . $commentCount . ")"; ?></button>
-                </p>
+                
+                <div class="card-body border-top d-flex justify-content-between">
+                    <div>
+                        <button id="btn_show_comment" class="btn btn-primary form-rounded"><?= "Tambah Komentar (" . $commentCount . ")"; ?></button>
+                    </div>   
+                    <div class="share-icons">
+                    <?php
+                    $url = urlencode(site_url("full-trash-report/" . $report['id']));
+                    $text = urlencode('Tinjau ini: ' . site_url("full-trash-report/" . $report['id']));
+                    ?>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $url; ?>" target="_blank"><img src="<?= base_url('img/fb.png'); ?>"/></a>
+                    <a href="https://api.whatsapp.com/send?text=<?php echo $url; ?>" target="_blank"><img src="<?= base_url('img/wa.png'); ?>"/></a>
+                    <a href="https://twitter.com/intent/tweet?url=<?php echo $url; ?>" target="_blank"><img src="<?= base_url('img/tw.png'); ?>"/></a>
+                </div> 
+                </div>
             </div>            
         </div>
         <div class="card mb-1 bg-secondary" id="add_comment" style="display:none;">
@@ -45,6 +57,7 @@
                     <Input class="form-control form-rounded flex-grow-1 mr-2" type="text" name="comment_text" placeholder="Masukkan komentar Anda" required>
                     <button type="submit" class="btn btn-primary form-rounded">Simpan</button>
                 </form>
+                
             </div>            
         </div>
 
