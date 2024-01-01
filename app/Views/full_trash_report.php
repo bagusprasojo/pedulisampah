@@ -40,8 +40,8 @@
                     </div>   
                     <div class="share-icons">
                     <?php
-                    $url = urlencode(site_url("full-trash-report/" . $report['id']));
-                    $text = urlencode('Tinjau ini: ' . site_url("full-trash-report/" . $report['id']));
+                    $url = urlencode(site_url("full-trash-report/" . $report['slug']));
+                    $text = urlencode('Tinjau ini: ' . site_url("full-trash-report/" . $report['slug']));
                     ?>
                     <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $url; ?>" target="_blank"><img src="<?= base_url('img/fb.png'); ?>"/></a>
                     <a href="https://api.whatsapp.com/send?text=<?php echo $url; ?>" target="_blank"><img src="<?= base_url('img/wa.png'); ?>"/></a>
