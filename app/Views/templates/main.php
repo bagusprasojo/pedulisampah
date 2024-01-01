@@ -11,8 +11,9 @@
     <!-- Letakkan CSS kustom atau link ke file CSS Anda di sini jika ada -->
 
     <script src="https://kit.fontawesome.com/1f76d780ab.js" crossorigin="anonymous"></script>
-
     <script src="https://cdn.tiny.cloud/1/gxpzqec8vc8ex8udgzg4zb5wtvwicff6x7dxhyd460tix26x/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    
+    
 </head>
 <body>
     <!-- Navbar -->

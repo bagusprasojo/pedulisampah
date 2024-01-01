@@ -21,7 +21,7 @@ $routes->match(['get', 'post'],'/comment/add/(:segment)', 'CommentController::ad
 $routes->get('/full-trash-report/(:segment)', 'TrashReports::fullTrashReport/$1');
 $routes->get('trash-comment/(:num)', 'CommentController::index/$1');
 
-$routes->get('user_dashboard', 'DashboardController::index');
+$routes->match(['get', 'post'],'user_dashboard', 'DashboardController::index');
 
 
 

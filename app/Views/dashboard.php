@@ -108,7 +108,7 @@
               </div>
             </div>
             <div class="col-md-8">
-              <div class="card mb-3">
+              <div class="card mb-3" id="profile">
                 <div class="card-body">
                   <div class="row">
                     <div class="col-sm-3">
@@ -148,12 +148,12 @@
                   <hr>
                   <div class="row">
                     <div class="col-sm-12">
-                      <a class="btn btn-info " target="__blank" href="">Edit</a>
+                      <a class="btn btn-info " target="__blank" href="">Change Password</a>
                     </div>
                   </div>
                 </div>
               </div>
-
+              
               <div class="row gutters-sm">
                 <div class="col-sm-12 mb-3">
                   <div class="card h-100">
