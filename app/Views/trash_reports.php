@@ -5,7 +5,7 @@
     <!-- Daftar Laporan Sampah -->
     <div class="container mt-4">
         <div class="d-flex justify-content-between align-items-center p-3 rounded row" style="background-color: #DEE0D5; margin-bottom: 10px;">
-            <h2 style="font-size: 1.5rem;">Daftar Laporan Sampah Terakhir</h2>
+            
             <div>
                 <a href="<?= site_url('tambah-laporan'); ?>" class="btn btn-primary mx-2">Tambah Laporan</a>
                 <a href="<?= site_url('trash-reports'); ?>" class="btn btn-success">Refresh</a>
