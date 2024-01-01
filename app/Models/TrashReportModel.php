@@ -13,7 +13,7 @@ class TrashReportModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['user_id', 'title','location', 'description', 'photo', 'created_at'];
+    protected $allowedFields    = ['user_id', 'title','location', 'description', 'photo', 'created_at', 'slug'];
 
     // Dates
     protected $useTimestamps = true;
@@ -54,9 +54,9 @@ class TrashReportModel extends Model
 
     // Callbacks
     protected $allowCallbacks = true;
-    protected $beforeInsert   = [];
+    protected $beforeInsert = ['generateSlug'];
+    protected $beforeUpdate = ['generateSlug'];
     protected $afterInsert    = [];
-    protected $beforeUpdate   = [];
     protected $afterUpdate    = [];
     protected $beforeFind     = [];
     protected $afterFind      = [];
@@ -81,5 +81,29 @@ class TrashReportModel extends Model
     {
         $photoModel = new TrashReportPhotoModel();
         return $photoModel->delete($photoId);
+    }
+
+    protected function generateSlug(array $data)
+    {
+        if (isset($data['data']['title'])) {
+            $slug = url_title($data['data']['title'], '-', true); // Membuat slug dari title
+
+            $data['data']['slug'] = $this->createUniqueSlug($slug); // Menyimpan slug pada field 'slug'
+        }
+
+        return $data;
+    }
+
+    protected function createUniqueSlug($slug)
+    {
+        $count = 1;
+        $originalSlug = $slug;
+
+        while ($this->where('slug', $slug)->first()) {
+            $slug = $originalSlug . '-' . $count;
+            $count++;
+        }
+
+        return $slug;
     }
 }

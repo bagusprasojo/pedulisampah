@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\CommentModel;
+use App\Models\TrashReportModel;
 
 class CommentController extends BaseController
 {
@@ -11,7 +12,7 @@ class CommentController extends BaseController
         helper('auth'); // Panggil helper 'auth' yang telah Anda buat
     }
 
-    public function addComment($trashReportId)
+    public function addComment($slug)
     {
         // Pastikan pengguna login sebelum menambahkan komentar
         // Contoh: periksa sesi login atau autentikasi pengguna
@@ -23,10 +24,12 @@ class CommentController extends BaseController
             return redirect()->to('/login')->with('error', 'Anda harus login untuk membuat komentar');
         }
 
-        
+        $report = new TrashReportModel();
+        $data = $report->select('*')->where('slug', $slug)->first();
+        $trashReportId = $data['id'];
         
         if ($this->request->getMethod() === 'get') {
-            return view('add_comment', ['trashReportId' => $trashReportId]);
+            return view('add_comment', ['slug' => $slug]);
         }
 
         // Ambil data dari formulir atau request
@@ -44,6 +47,6 @@ class CommentController extends BaseController
         $commentModel->insert($commentData);
 
         // Redirect ke halaman laporan sampah setelah menambahkan komentar
-        return redirect()->to("/full-trash-report/{$trashReportId}"); // Ganti '/trash_reports/view/{$trashReportId}' dengan rute yang sesuai
+        return redirect()->to("/full-trash-report/{$slug}"); // Ganti '/trash_reports/view/{$trashReportId}' dengan rute yang sesuai
     }
 }

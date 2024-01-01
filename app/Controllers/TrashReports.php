@@ -115,7 +115,7 @@ class TrashReports extends Controller
 
         if ($this->validate($reportModel->validationRules, $reportModel->validationMessages)) {
                 
-            $reportModel->insert($data);
+            $reportModel->save($data);
             $reportId = $reportModel->getInsertID();
         
             // Simpan foto-foto terkait laporan
@@ -130,7 +130,7 @@ class TrashReports extends Controller
         }
     }
 
-    public function fullTrashReport($reportId)
+    public function fullTrashReport($slug)
     {
         $reportModel = new TrashReportModel();
         $commentModel = new CommentModel();
@@ -139,9 +139,12 @@ class TrashReports extends Controller
         $report = $reportModel
             ->select('trashreports.*, users.username, users.name')
             ->join('users', 'users.id = trashreports.user_id')
-            ->find($reportId);
+            ->where('slug', $slug)->first();
 
-        
+        $reportId = $report['id'];
+
+        // var_dump($report);
+        // die();
         $commentCount = $commentModel->where('trash_report_id', $reportId)->countAllResults();
 
         // Mendapatkan ID pengguna atau identifikasi unik pengunjung (gunakan session atau cookies)
