@@ -31,7 +31,7 @@
             
             <div class="card-body">
                 <h5 class="card-title"><?= $report['title']; ?></h5>
-                <small class="text-muted">Reported by <?= $report['username']; ?> on <?= date('F j, Y', strtotime($report['created_at'])); ?></small>                        
+                <small class="text-muted">Reported by <a href="<?= site_url('public_profile/' . $report['username']); ?>"><?= $report['username']; ?></a> on <?= date('F j, Y', strtotime($report['created_at'])); ?></small>                        
                 <p class="card-text"><?= $report['description']; ?></p>
                 
                 <div class="card-body border-top d-flex justify-content-between">

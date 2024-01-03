@@ -78,4 +78,61 @@ class DashboardController extends BaseController
             'pager'=>$pager
         ]);
     }
+
+    public function public_profile($username)
+    {
+        $user_profile = new UserModel();
+        $user_id = $user_profile->where('username', $username)->first()['id'];
+
+        $userModel = new UserModel();
+        $user = $userModel->where('id', $user_id)
+                        ->first();
+
+        $userData = [
+            'username' => $user['username'],
+            'name' => $user['name'],
+            'email' => $user['email'],
+            'address' => $user['address']
+            // Dan lain sebagainya
+        ];
+
+        // Mengakses model yang diperlukan
+        $trashReportModel = new TrashReportModel();
+        $commentModel = new CommentModel();
+        $visitorRecordModel = new VisitorReportRecordModel();
+
+        
+        $jumlah_laporan = $trashReportModel->where('user_id', $user_id)->countAllResults();
+        $jumlah_komentar_keluar = $commentModel->where('user_id', $user_id)->countAllResults();
+        $jumlah_komentar_masuk = $commentModel->where('trashreports.user_id', $user_id)
+                                              ->join('trashreports', 'trash_report_id = trashreports.id')
+                                              ->countAllResults();
+
+        $jumlah_view = $visitorRecordModel->where('trashreports.user_id', $user_id)
+                                          ->join('trashreports','trashreports.id = report_id')
+                                          ->countAllResults();
+        
+
+        $statistics = [
+            'jumlah_laporan' => $jumlah_laporan,
+            'jumlah_komentar_masuk' => $jumlah_komentar_masuk,
+            'jumlah_komentar_keluar' => $jumlah_komentar_keluar,
+            'jumlah_view' => $jumlah_view
+        ];
+
+        $latestReports = $trashReportModel->where('user_id', $user_id)        
+        ->orderBy('created_at', 'DESC')
+        ->paginate(5);
+
+        $pager = $trashReportModel->pager;
+
+
+
+        return view('public_profile', [
+            'userData' => $userData,
+            'statistics' => $statistics,
+            'latestReports'=>$latestReports,
+            'pager'=>$pager
+        ]);
+    }
 }

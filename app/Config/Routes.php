@@ -15,13 +15,15 @@ $routes->match(['get', 'post'], '/tambah-laporan', 'TrashReports::tambahLaporan'
 $routes->match(['get', 'post'], '/register', 'AuthController::register');
 $routes->match(['get', 'post'], '/login', 'AuthController::login');
 $routes->get('/logout', 'AuthController::logout');
-// $routes->get('/user_dashboard', 'AuthController::user_dashboard');
+
 $routes->match(['get', 'post'],'/comment/add/(:segment)', 'CommentController::addComment/$1');
 
 $routes->get('/full-trash-report/(:segment)', 'TrashReports::fullTrashReport/$1');
 $routes->get('trash-comment/(:num)', 'CommentController::index/$1');
 
-$routes->match(['get', 'post'],'user_dashboard', 'DashboardController::index');
+$routes->get('/user_dashboard', 'DashboardController::index');
+$routes->get('/public_profile/(:segment)', 'DashboardController::public_profile/$1');
+
 
 
 

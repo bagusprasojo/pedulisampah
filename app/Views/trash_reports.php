@@ -17,7 +17,7 @@
                     <a href="full-trash-report/<?= $report['slug']; ?>"><img src="<?= base_url('public/uploads/' . $report['photo']); ?>" class="card-img-top" alt="Photo Sampah" style="max-width: 100%; height: auto;"></a>
                     <div class="card-body">
                     <a href="full-trash-report/<?= $report['slug']; ?>"><h5 class="card-title"><?= $report['title']; ?> (<?= $report['location']; ?>)</h5></a>
-                        <small class="text-muted">Reported by <?= $report['username']; ?> on <?= date('F j, Y', strtotime($report['created_at'])); ?></small>
+                        <small class="text-muted">Reported by <a href="<?= site_url('public_profile/' . $report['username']); ?>"><?= $report['username']; ?></a> on <?= date('F j, Y', strtotime($report['created_at'])); ?></small>
                         <p class="card-text"><?= $report['desc250']; ?></p>
                         
                     </div>
