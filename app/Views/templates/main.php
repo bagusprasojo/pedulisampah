@@ -13,10 +13,21 @@
     <script src="https://kit.fontawesome.com/1f76d780ab.js" crossorigin="anonymous"></script>
     <script src="https://cdn.tiny.cloud/1/gxpzqec8vc8ex8udgzg4zb5wtvwicff6x7dxhyd460tix26x/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MRG996D6');</script>
+    <!-- End Google Tag Manager -->
     
 </head>
 <body>
     <!-- Navbar -->
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MRG996D6"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
     
     <?php 
         include(APPPATH . 'Views/includes/_navbar.php'); 
