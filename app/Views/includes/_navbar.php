@@ -15,7 +15,7 @@
                     <a class="nav-link" href="<?= site_url('trash-reports');?>">Laporan Sampah</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Tentang Kami</a>
+                    <a class="nav-link" href="<?= site_url('about') ?>">Tentang Kami</a>
                 </li>
                 
                 <?php

@@ -6,6 +6,8 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'Home::index');
+$routes->get('/about', 'AboutController::index');
+
 $routes->get('/trash-reports', 'TrashReports::index');
 $routes->get('/trash-reports-pagination', 'TrashReportPagination::index');
 
