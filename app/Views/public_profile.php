@@ -80,7 +80,11 @@
                     <div class="mt-3">
                       <h4><?= $userData['name'] ?></h4>
                       <p class="text-muted font-size-sm"><?= $userData['address'] ?></p>
-                      <button class="btn btn-primary">Follow</button>
+                      <?php if ($is_follow) {?>
+                        <a href="<?= site_url('unfollow/' . $userData['id']); ?>" class="btn btn-primary">Unfollow</a>
+                      <?php } else {?>
+                        <a href="<?= site_url('follow/' . $userData['id']); ?>" class="btn btn-primary">Follow</a>
+                      <?php } ?>
                       <button class="btn btn-outline-primary">Message</button>
                     </div>
                   </div>
@@ -103,6 +107,14 @@
                   <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                     <h6 class="mb-0"><i class="mr-2 fa-regular fa-eye" aria-hidden="true"></i>Trash Report Views</h6>
                     <span class="text-secondary"><?= $statistics['jumlah_view'] ?></span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                    <h6 class="mb-0"><i class="mr-2 fa-solid fa-person-walking-arrow-loop-left"></i>Follower</h6>
+                    <span class="text-secondary"><?= $userData['follower_count'] ?></span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                    <h6 class="mb-0"><i class="mr-2 fa-solid fa-person-walking-arrow-right"></i>Following</h6>
+                    <span class="text-secondary"><?= $userData['following_count'] ?></span>
                   </li>
                 </ul>
               </div>

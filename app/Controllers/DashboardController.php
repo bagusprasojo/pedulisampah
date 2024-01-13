@@ -5,6 +5,7 @@ use App\Models\UserModel;
 use App\Models\TrashReportModel;
 use App\Models\CommentModel;
 use App\Models\VisitorReportRecordModel;
+use App\Models\FollowModel;
 
 class DashboardController extends BaseController
 {
@@ -29,14 +30,16 @@ class DashboardController extends BaseController
 
         $userModel = new UserModel();
         $user = $userModel->where('id', $user_id)
-                        ->first();
+                          ->first();
 
         $userData = [
             'username' => $user['username'],
             'name' => $user['name'],
             'email' => $user['email'],
-            'address' => $user['address']
-            // Dan lain sebagainya
+            'address' => $user['address'],
+            'id' => $user['id'],
+            'follower_count' => $user['follower_count'],
+            'following_count' => $user['following_count'],
         ];
 
         // Mengakses model yang diperlukan
@@ -92,7 +95,10 @@ class DashboardController extends BaseController
             'username' => $user['username'],
             'name' => $user['name'],
             'email' => $user['email'],
-            'address' => $user['address']
+            'address' => $user['address'],
+            'id' => $user['id'],
+            'follower_count' => $user['follower_count'],
+            'following_count' => $user['following_count'],
             // Dan lain sebagainya
         ];
 
@@ -126,13 +132,30 @@ class DashboardController extends BaseController
 
         $pager = $trashReportModel->pager;
 
+        $is_follow = false;
+        
+        $session = session();
+        if (is_logged_in()) {
+            $logged_user_id = $session->get('user_id');
 
+            $follow_model = new FollowModel();
+            $data_follow = $follow_model->select('*')
+                                       ->where('user_id',$logged_user_id)  
+                                       ->where('follow_user_id', $user_id)
+                                       ->first();
 
+            if ($data_follow) {
+                $is_follow = true;
+            }            
+        }
+
+    
         return view('public_profile', [
             'userData' => $userData,
             'statistics' => $statistics,
             'latestReports'=>$latestReports,
-            'pager'=>$pager
+            'pager'=>$pager,
+            'is_follow'=>$is_follow,
         ]);
     }
 }

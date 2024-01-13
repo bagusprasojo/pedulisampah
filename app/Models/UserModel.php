@@ -8,7 +8,7 @@ class UserModel extends Model
 {
     protected $table = 'users';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['username', 'email', 'password','name','address']; // Field yang diizinkan untuk diisi
+    protected $allowedFields = ['username', 'email', 'password','name','address','follower_count', 'following_count']; // Field yang diizinkan untuk diisi
     protected $useAutoIncrement = true;
     
     // Aturan validasi, misalnya untuk pendaftaran pengguna

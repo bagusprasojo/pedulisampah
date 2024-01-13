@@ -26,6 +26,9 @@ $routes->get('trash-comment/(:num)', 'CommentController::index/$1');
 $routes->get('/user_dashboard', 'DashboardController::index');
 $routes->get('/public_profile/(:segment)', 'DashboardController::public_profile/$1');
 
+$routes->get('/follow/(:num)', 'FollowController::follow/$1');
+$routes->get('/unfollow/(:num)', 'FollowController::unfollow/$1');
+
 
 
 
