@@ -133,6 +133,7 @@ class DashboardController extends BaseController
         $pager = $trashReportModel->pager;
 
         $is_follow = false;
+        $is_show_button = false;
         
         $session = session();
         if (is_logged_in()) {
@@ -146,7 +147,11 @@ class DashboardController extends BaseController
 
             if ($data_follow) {
                 $is_follow = true;
-            }            
+            }
+            
+            if ($user_id != $logged_user_id) {
+                $is_show_button = true;
+            }
         }
 
     
@@ -156,6 +161,7 @@ class DashboardController extends BaseController
             'latestReports'=>$latestReports,
             'pager'=>$pager,
             'is_follow'=>$is_follow,
+            'is_show_button' => $is_show_button,
         ]);
     }
 }

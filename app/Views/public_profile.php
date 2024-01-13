@@ -80,12 +80,14 @@
                     <div class="mt-3">
                       <h4><?= $userData['name'] ?></h4>
                       <p class="text-muted font-size-sm"><?= $userData['address'] ?></p>
-                      <?php if ($is_follow) {?>
-                        <a href="<?= site_url('unfollow/' . $userData['id']); ?>" class="btn btn-primary">Unfollow</a>
-                      <?php } else {?>
-                        <a href="<?= site_url('follow/' . $userData['id']); ?>" class="btn btn-primary">Follow</a>
-                      <?php } ?>
-                      <button class="btn btn-outline-primary">Message</button>
+                      <?php if ($is_show_button){ ?>
+                        <?php if ($is_follow) {?>
+                          <a href="<?= site_url('unfollow/' . $userData['id']); ?>" class="btn btn-primary">Unfollow</a>
+                        <?php } else {?>
+                          <a href="<?= site_url('follow/' . $userData['id']); ?>" class="btn btn-primary">Follow</a>
+                        <?php } ?>
+                        <button class="btn btn-outline-primary">Message</button>
+                      <?php }?>
                     </div>
                   </div>
                 </div>
@@ -120,46 +122,6 @@
               </div>
             </div>
             <div class="col-md-8">
-              <div class="card mb-3" id="profile">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">User Name</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      <?= $userData['username'] ?>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Full Name</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      <?= $userData['name'] ?>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Email</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                        <?= $userData['email'] ?>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Address</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                        <?= $userData['address'] ?>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
               <div class="row gutters-sm">
                 <div class="col-sm-12 mb-3">
                   <div class="card h-100">

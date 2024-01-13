@@ -37,7 +37,7 @@ class FollowController extends BaseController
                                         ->where('follow_user_id', $user_id)
                                         ->first();
 
-                if (!$data_follow) {
+                if (!$data_follow && $logged_user_id != $user_id) {
                 
                     $save_data = [
                                     'user_id'=> $logged_user_id,
